@@ -1,7 +1,9 @@
-cat > .gitignore << 'EOF'
 .venv/
 __pycache__/
-artifacts/
-.DS_Store
-EOF
 *.pyc
+artifacts/
+node_modules/
+.DS_Store
+frontend/node_modules/
+dist/
+.pytest_cache/
