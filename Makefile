@@ -1,4 +1,4 @@
-PYTHON ?= python
+PYTHON ?= $(shell if [ -x .venv/bin/python ]; then echo .venv/bin/python; else echo python; fi)
 FRONTEND_DIR := frontend
 
 .PHONY: dev backend frontend test lint install
@@ -8,13 +8,13 @@ install:
 	cd $(FRONTEND_DIR) && npm install
 
 backend:
-	PYTHONPATH=. uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
+	PYTHONPATH=. $(PYTHON) -m uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
 
 frontend:
 	cd $(FRONTEND_DIR) && npm install && npm run dev -- --host
 
 dev:
-	PYTHONPATH=. uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000 & \
+	PYTHONPATH=. $(PYTHON) -m uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000 & \
 	cd $(FRONTEND_DIR) && npm install && npm run dev -- --host
 
 test:

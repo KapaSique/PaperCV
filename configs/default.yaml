@@ -1,21 +1,16 @@
-camera:
-  index: 0
-  width: 1280
-  height: 720
-  fps: 24
-
 attention:
-  window_seconds: 30
-  yaw_threshold_deg: 18
-  pitch_threshold_deg: 15
   gaze_radius: 0.28
-  smoothing_alpha: 0.55
   hysteresis_frames: 3
   min_detection_confidence: 0.5
   min_tracking_confidence: 0.5
-
+  pitch_threshold_deg: 15.0
+  smoothing_alpha: 0.55
+  window_seconds: 30.0
+  yaw_threshold_deg: 25.0
 calibration:
   sample_frames: 45
-
-storage:
-  database_path: artifacts/attention_guard.db
+camera:
+  fps: 24
+  height: 720
+  index: 0
+  width: 1280
