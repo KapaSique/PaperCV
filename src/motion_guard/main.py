@@ -49,6 +49,7 @@ def main() -> None:
                 cv2.putText(frame, "Warming up background...", (20, 40),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 2, cv2.LINE_AA)
                 cv2.imshow("frame", frame)
+                cv2.selectROI()
                 if (cv2.waitKey(1) & 0xFF) == ord("q"):
                     break
                 continue
